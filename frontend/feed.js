@@ -18,6 +18,28 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentPostId = null;
   let commentCache = [];
   let requestedPost = window.location.hash.match(/^#post-(.+)$/)?.[1] || null;
+  let soundOn = false;
+  let soundChosen = false;
+
+  function setSound(on) {
+    soundOn = on;
+    items.querySelectorAll('video').forEach((v) => {
+      v.muted = !on;
+    });
+    items.querySelectorAll('.sound-toogle').forEach((b) => {
+      b.textContent = on ? 'Sound on' : 'Muted';
+      b.setAttribute('aria-label', on ? 'Mute video' : 'Turn video sound on');
+    });
+  }
+
+  // The first tap anywhere turns the sound on (browsers require a tap first)
+  document.addEventListener('click', (event) => {
+    if (soundChosen) return;
+    soundChosen = true;
+    if (event.target.closest('.sound-toggle')) return;
+    setSound(true);
+    if (event.target.matches('video')) event.stopPropagation();
+  }, { capture: true });
 
   const makeElement = (tag, className, text) => {
     const element = document.createElement(tag);
@@ -73,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
       video.src = post.videoUrl;
       video.playsInline = true;
       video.loop = true;
-      video.muted = true;
+      video.muted = !soundOn;
       video.preload = 'metadata';
       video.setAttribute('aria-label', post.caption || 'Shared video');
       video.addEventListener('click', () => {
@@ -82,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       mediaObserver.observe(video);
       stage.append(video);
-      const soundButton = makeElement('button', 'sound-toggle', 'Muted');
+      const soundButton = makeElement('button', 'sound-toggle', soundOn ? 'Sound on' : 'Muted');
       soundButton.type = 'button';
       soundButton.setAttribute('aria-label', 'Turn video sound on');
       soundButton.addEventListener('click', () => {
