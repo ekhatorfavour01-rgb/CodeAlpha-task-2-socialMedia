@@ -8,7 +8,7 @@ Add your deployment URLs here when they are ready:
 
 | Service | URL |
 | --- | --- |
-| Frontend | `` |
+| Frontend | `https://codealpha-task-2-socialmedia-fronte.vercel.app/` |
 | Backend API | `https://codealpha-task-2-socialmedia.onrender.com` |
 
 The backend health check is available at `/api/health` (for example, `https://your-backend.example/api/health`).
