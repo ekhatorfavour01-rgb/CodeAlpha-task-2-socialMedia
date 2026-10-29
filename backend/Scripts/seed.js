@@ -40,6 +40,7 @@ const seed = async () => {
       author: byUsername[p.by]._id,
       caption: p.caption,
       videoUrl: p.videoUrl,
+      imageUrl: p.imageUrl,
       likes: likers,
     });
     createdPosts.push(post);
