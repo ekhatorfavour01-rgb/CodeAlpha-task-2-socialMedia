@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111114">
+    <meta name="api-base" content="">
+    <title>Loop — discover your next favorite</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <script>window.MEDIA_API_URL = '';</script>
+    
+    <script src="api.js" defer></script>
+    <script src="feed.js" defer></script>
+  </head>
+  <body class="app-page">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="Loop home"><span class="brand-mark">L</span><span>loop</span></a>
+      <form class="search-form" id="search-form" role="search">
+        <label class="sr-only" for="user-search">Search creators</label>
+        <span aria-hidden="true">⌕</span>
+        <input id="user-search" type="search" placeholder="Find your people" autocomplete="off">
+        <div class="search-results" id="search-results" hidden></div>
+      </form>
+      <nav class="top-actions" aria-label="Main navigation">
+        <a class="button button-quiet" href="upload.html"><span aria-hidden="true">＋</span> Create</a>
+        <a class="button button-primary" id="auth-link" href="login.html">Log in</a>
+        <a class="avatar-link" id="profile-link" href="login.html" aria-label="Your profile" hidden>
+          <img id="nav-avatar" alt="">
+        </a>
+      </nav>
+    </header>
+
+    <div class="feed-layout">
+      <aside class="sidebar">
+        <nav class="side-nav" aria-label="Feed navigation">
+          <button class="side-link is-active" type="button" data-feed="for-you"><span>✦</span> For you</button>
+          <button class="side-link" type="button" data-feed="following"><span>◎</span> Following</button>
+          <a class="side-link" href="upload.html"><span>＋</span> Create a post</a>
+        </nav>
+        <div class="sidebar-note">
+          <p>Little moments.<br><strong>Big energy.</strong></p>
+          <span>Make room for what moves you.</span>
+        </div>
+        <footer class="sidebar-footer">A place to be in the moment.</footer>
+      </aside>
+
+      <main class="feed-main">
+        <div class="mobile-feed-tabs" aria-label="Choose feed">
+          <button class="is-active" type="button" data-feed="for-you">For you</button>
+          <button type="button" data-feed="following">Following</button>
+        </div>
+        <div class="feed-heading">
+          <div>
+            <p class="eyebrow">YOUR DAILY DOSE</p>
+            <h1 id="feed-title">For you</h1>
+          </div>
+          <span class="live-dot" aria-label="Feed is live"></span>
+        </div>
+        <section class="feed-scroller" id="feed-scroller" aria-label="Video feed">
+          <div class="feed-status" id="feed-status" role="status">Finding good things for you…</div>
+          <div id="feed-items"></div>
+          <div class="feed-status feed-more" id="feed-more" hidden>Loading more…</div>
+        </section>
+      </main>
+    </div>
+
+    <dialog class="comments-dialog" id="comments-dialog" aria-labelledby="comments-title">
+      <div class="dialog-header">
+        <div><p class="eyebrow">THE CONVERSATION</p><h2 id="comments-title">Comments</h2></div>
+        <button class="icon-button" id="close-comments" type="button" aria-label="Close comments">×</button>
+      </div>
+      <div class="comments-list" id="comments-list"></div>
+      <form class="comment-form" id="comment-form">
+        <label class="sr-only" for="comment-text">Write a comment</label>
+        <input id="comment-text" name="text" maxlength="300" placeholder="Add a thoughtful comment…" required>
+        <button class="button button-primary" type="submit">Post</button>
+      </form>
+      <p class="form-message" id="comment-message" role="status"></p>
+    </dialog>
+
+    <div class="toast-region" id="toast-region" aria-live="polite"></div>
+  </body>
+</html>

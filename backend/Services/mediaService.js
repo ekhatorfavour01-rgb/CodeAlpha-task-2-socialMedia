@@ -1,8 +1,8 @@
-const cloudinary = require('cloudinary');
+const cloudinary = require('../Config/Cloudinary');
 
 const uploadMedia = (buffer, mimetype) => new Promise((resolve, reject) => {
     
-    if (!process.env.CLOUDINARY_CLOUDE_NAME || !process.env.CLOUDINARY_API_KEY) {
+    if (!process.env.CLOUDINARY_CLOUD_NAME || !process.env.CLOUDINARY_API_KEY || !process.env.CLOUDINARY_API_SECRET) {
         return reject(new Error('Cloudinary is not set up. Add the keys to .env, or paste a video link instead.'));
     }
 

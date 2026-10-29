@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111114">
+    <meta name="api-base" content="">
+    <title>Create an account — Loop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <script>window.MEDIA_API_URL = '';</script>
+    
+    <script src="api.js" defer></script>
+    <script src="auth.js" defer></script>
+  </head>
+  <body class="auth-page">
+    <header class="auth-topbar"><a class="brand" href="index.html"><span class="brand-mark">L</span><span>loop</span></a><a class="text-link" href="index.html">Explore without an account <span aria-hidden="true">→</span></a></header>
+    <main class="auth-shell">
+      <section class="auth-art">
+        <span class="art-orbit orbit-one"></span><span class="art-orbit orbit-two"></span>
+        <div class="art-copy"><p class="eyebrow">A LITTLE MORE YOU</p><h1>Make a<br> moment.</h1><p>Share what inspires you and find your corner of the internet.</p></div>
+        <div class="art-sticker">Good vibes<br>live here <span>✳</span></div>
+      </section>
+      <section class="auth-card">
+        <div class="auth-heading"><p class="eyebrow">JOIN THE LOOP</p><h2>Your next chapter starts here.</h2><p>Set up your space. It only takes a minute.</p></div>
+        <form class="form-stack" id="register-form">
+          <label>Your name<input name="name" type="text" autocomplete="name" maxlength="80" placeholder="What should we call you?" required></label>
+          <label>Username<input name="username" type="text" autocomplete="username" minlength="3" maxlength="20" pattern="[A-Za-z0-9_]{3,20}" placeholder="Choose a username" required><small>3–20 letters, numbers, or underscores.</small></label>
+          <label>Email address<input name="email" type="email" autocomplete="email" placeholder="you@example.com" required></label>
+          <label>Password<input name="password" type="password" autocomplete="new-password" minlength="6" placeholder="At least 6 characters" required></label>
+          <button class="button button-primary button-wide" type="submit"><span>Create account</span><span aria-hidden="true">→</span></button>
+          <p class="form-message" id="auth-message" role="alert"></p>
+        </form>
+        <p class="auth-switch">Already have an account? <a href="login.html">Log in</a></p>
+      </section>
+    </main>
+    <div class="toast-region" id="toast-region" aria-live="polite"></div>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111114">
+    <meta name="api-base" content="">
+    <title>Log in — Loop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <script>window.MEDIA_API_URL = '';</script>
+    
+    <script src="api.js" defer></script>
+    <script src="auth.js" defer></script>
+  </head>
+  <body class="auth-page">
+    <header class="auth-topbar"><a class="brand" href="index.html"><span class="brand-mark">L</span><span>loop</span></a><a class="text-link" href="index.html">Explore without an account <span aria-hidden="true">→</span></a></header>
+    <main class="auth-shell">
+      <section class="auth-art">
+        <span class="art-orbit orbit-one"></span><span class="art-orbit orbit-two"></span>
+        <div class="art-copy"><p class="eyebrow">YOUR PEOPLE. YOUR PACE.</p><h1>Find the<br> feeling.</h1><p>Fresh perspectives, tiny joys, and creators worth your time.</p></div>
+        <div class="art-sticker">Stay<br>curious <span>✳</span></div>
+      </section>
+      <section class="auth-card">
+        <div class="auth-heading"><p class="eyebrow">WELCOME BACK</p><h2>Good to see you.</h2><p>Log in and get back to the good stuff.</p></div>
+        <form class="form-stack" id="login-form">
+          <label>Email address<input name="email" type="email" autocomplete="email" placeholder="you@example.com" required></label>
+          <label>Password<input name="password" type="password" autocomplete="current-password" placeholder="Your password" required></label>
+          <button class="button button-primary button-wide" type="submit"><span>Log in</span><span aria-hidden="true">→</span></button>
+          <p class="form-message" id="auth-message" role="alert"></p>
+        </form>
+        <div class="auth-divider"><span>or</span></div>
+        <a class="button button-outline button-wide google-button" id="google-login" href="#" hidden><span class="google-g">G</span> Continue with Google</a>
+        <p class="auth-switch">New around here? <a href="register.html">Create an account</a></p>
+      </section>
+    </main>
+    <div class="toast-region" id="toast-region" aria-live="polite"></div>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111114">
+    <meta name="api-base" content="">
+    <title>Creator profile — Loop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <script>window.MEDIA_API_URL = '';</script>
+    
+    <script src="api.js" defer></script>
+    <script src="profile.js" defer></script>
+  </head>
+  <body class="app-page profile-page">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="Loop home"><span class="brand-mark">L</span><span>loop</span></a>
+      <form class="search-form" id="search-form" role="search"><label class="sr-only" for="user-search">Search creators</label><span aria-hidden="true">⌕</span><input id="user-search" type="search" placeholder="Find your people" autocomplete="off"><div class="search-results" id="search-results" hidden></div></form>
+      <nav class="top-actions" aria-label="Main navigation"><a class="button button-quiet" href="upload.html"><span aria-hidden="true">＋</span> Create</a><a class="button button-primary" id="auth-link" href="login.html">Log in</a><a class="avatar-link" id="profile-link" href="login.html" aria-label="Your profile" hidden><img id="nav-avatar" alt=""></a></nav>
+    </header>
+    <main class="profile-main">
+      <div class="profile-back"><a class="text-link" href="index.html"><span aria-hidden="true">←</span> Back to your feed</a></div>
+      <section class="profile-card" id="profile-card"><div class="feed-status">Finding this creator…</div></section>
+      <section class="profile-content">
+        <div class="profile-tabs"><h2 id="posts-heading">Posts</h2><div class="profile-filters" id="profile-filters"><button class="is-active" type="button" data-list="posts">Posts</button><button type="button" data-list="followers">Followers</button><button type="button" data-list="following">Following</button></div></div>
+        <div class="profile-grid" id="profile-grid"></div>
+        <div class="feed-status" id="profile-status" role="status"></div>
+      </section>
+    </main>
+    <div class="toast-region" id="toast-region" aria-live="polite"></div>
+  </body>
+</html>

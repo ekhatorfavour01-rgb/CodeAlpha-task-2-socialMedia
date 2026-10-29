@@ -12,7 +12,7 @@ router.get('/me', protect, getMe); // who am i?
 
 // ---------- Google login -------------
 // where to send the browser if google login fails
-const failureUrl = () => `${(process.env.FRONTEND_URL || 'http://localhost:4000').replace(/\/+$/, '')}/ login.html?error=google`;
+const failureUrl = () => `${(process.env.FRONTEND_URL || 'http://localhost:4000').replace(/\/+$/, '')}/login.html?error=google`;
 
 //if the google key are not in .env
 const requireGoogle = (req, res, next) => {
